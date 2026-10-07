@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Marka tokenleri — CLAUDE.md'deki renk tablosunun birebir karsiligi
+--------------------------------------------------------------- */
+@theme {
+  --color-antrasit: #2e2e2e;
+  --color-altin: #b08d57;
+  --color-altin-acik: #c9a96e;
+  /* Erisilebilirlik varyanti: ACIK zeminde KUCUK altin metin icin.
+     #b08d57 beyazda 3.09:1 / kremde 2.70:1 kaliyor (AA icin 4.5 gerekli);
+     bu ton ayni altin ailesinden ve 5.29:1 / 4.61:1 veriyor.
+     Cizgiler, cerceveler ve buton zemini icin --color-altin kullanilmaya devam eder. */
+  --color-altin-koyu: #866639;
+  /* Dolu butonun zemini. #b08d57 uzerinde antrasit yazi 4.39:1 kaliyor,
+     AA icin 4.5 gerekli. Bu ton 4.51:1 veriyor ve gozle ayirt edilmiyor
+     (kanal basina 2/255 fark). Cizgi ve cerceveler --color-altin kullanir. */
+  --color-altin-dolu: #b28f59;
+  --color-krem: #f4efe4;
+  --color-gri: #6b6b6b;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+/* ---------------------------------------------------------------
+   Temel
+--------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  /* Sabit header'in altinda kalmasin diye bolum ustu bosluk (header: 72px / lg 96px) */
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--color-antrasit);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* Not: body uzerinde overflow-x:hidden KULLANMA. body'yi kaydirma kabi
+     yapip #bolum capa linklerinin kaydirmasini bozuyor. Yatay tasmayi
+     her bolum kendi overflow-hidden'i ile engelliyor. */
+}
+
+::selection {
+  background-color: var(--color-altin);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-altin);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------
+   Duvar kagidi desenleri — tamami inline SVG, dis dosya yok.
+   Opaklik stroke icinde cok dusuk tutuldu; metin okunurlugu bozulmaz.
+--------------------------------------------------------------- */
+
+/* Esksenar dortgen kafes — acik zeminler icin */
+.desen-elmas {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 0 L64 32 L32 64 L0 32 Z' fill='none' stroke='rgba(46,46,46,0.065)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Esksenar dortgen kafes — koyu zeminler icin (altin cizgi) */
+.desen-elmas-koyu {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 0 L64 32 L32 64 L0 32 Z' fill='none' stroke='rgba(201,169,110,0.11)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Damask benzeri dort yaprakli motif — acik zeminler */
+.desen-damask {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='rgba(176,141,87,0.13)' stroke-width='1'%3E%3Cpath d='M36 9 C45 19 45 27 36 36 C27 27 27 19 36 9 Z'/%3E%3Cpath d='M36 36 C45 45 45 53 36 63 C27 53 27 45 36 36 Z'/%3E%3Cpath d='M9 36 C19 27 27 27 36 36 C27 45 19 45 9 36 Z'/%3E%3Cpath d='M36 36 C45 27 53 27 63 36 C53 45 45 45 36 36 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 72px 72px;
+}
+
+/* Damask benzeri motif — koyu zeminler */
+.desen-damask-koyu {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='rgba(201,169,110,0.1)' stroke-width='1'%3E%3Cpath d='M36 9 C45 19 45 27 36 36 C27 27 27 19 36 9 Z'/%3E%3Cpath d='M36 36 C45 45 45 53 36 63 C27 53 27 45 36 36 Z'/%3E%3Cpath d='M9 36 C19 27 27 27 36 36 C27 45 19 45 9 36 Z'/%3E%3Cpath d='M36 36 C45 27 53 27 63 36 C53 45 45 45 36 36 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 72px 72px;
+}
+
+/* ---------------------------------------------------------------
+   Bolumlerin cok hafif belirmesi. Tamamen CSS; JS yok.
+   @supports disinda ya da reduced-motion'da hicbir sey olmaz,
+   icerik dogrudan gorunur kalir.
+--------------------------------------------------------------- */
+@keyframes belirme {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .belir {
+      animation: belirme linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}

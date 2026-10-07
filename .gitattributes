@@ -1,0 +1,6 @@
+# Depoda satir sonlari LF tutulur; Windows'ta checkout sirasinda
+# calisma kopyasi CRLF olabilir, commit edilen icerik degismez.
+* text=auto eol=lf
+
+# Ikili dosyalar
+*.png binary

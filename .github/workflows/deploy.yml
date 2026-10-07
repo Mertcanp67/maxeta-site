@@ -1,0 +1,76 @@
+# Siteyi derleyip GitHub Pages'e yukler.
+# main branch'e her push'ta ve elle (workflow_dispatch) calisir.
+#
+# Not: Site alt klasorde yayinlandigi icin (…github.io/maxwall-site) derlemeye
+# NEXT_PUBLIC_BASE_PATH veriliyor. Repo adini degistirirseniz asagidaki
+# BASE_PATH degerini de guncelleyin. Cloudflare derlemesi bu degiskeni
+# almadigi icin orada site kok dizinde calismaya devam eder.
+
+name: GitHub Pages'e yukle
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pages'e yukleme icin gereken izinler
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Ayni anda tek dagitim; devam eden dagitim iptal edilmez
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  BASE_PATH: /maxwall-site
+
+jobs:
+  build:
+    name: Derle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Bagimliliklari kur
+        run: npm ci
+
+      - name: Pages ayarlarini al
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Statik siteyi derle
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ env.BASE_PATH }}
+          NEXT_PUBLIC_SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
+        run: npm run build
+
+      - name: .nojekyll ekle
+        # GitHub Pages'in Jekyll islemesini kapatir; _next klasoru yoksa sayilmaz.
+        run: touch out/.nojekyll
+
+      - name: Ciktiyi yukle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    name: Yayina al
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages'e dagit
+        id: deployment
+        uses: actions/deploy-pages@v4
