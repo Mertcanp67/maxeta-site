@@ -34,6 +34,11 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(125%_85%_at_50%_45%,transparent_38%,rgba(0,0,0,0.5))]"
       />
+      {/* Kagit dokusu: en ustteki arka plan katmani, icerigin altinda kalir */}
+      <div
+        aria-hidden="true"
+        className="doku-kagit pointer-events-none absolute inset-0 opacity-[0.09] mix-blend-overlay"
+      />
       {/* Alt kenarda yumusak koyulasma, bolum gecisini yumusatir */}
       <div
         aria-hidden="true"
@@ -49,7 +54,7 @@ export function Hero() {
 
             {/* Akiskan punto: 360px'te ~37px, genis ekranda 92px'e kadar
                 buyuyor. clamp sayesinde ara kirilimlarda da orantili. */}
-            <h1 className="font-serif text-[clamp(2.35rem,8.6vw,5.75rem)] leading-[1.06] font-light text-krem">
+            <h1 className="font-serif text-[clamp(2.35rem,8.6vw,5.75rem)] leading-[1.06] font-light tracking-[-0.018em] text-krem">
               <span className="hero-giris block [animation-delay:150ms]">
                 Duvarlarınıza
               </span>

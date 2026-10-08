@@ -4,9 +4,13 @@ import { site } from "@/config/site";
 import { asset, basePath, siteUrl } from "@/lib/paths";
 import "./globals.css";
 
+// `weight` BILEREK verilmiyor: sabit agirlik listesi verildiginde next/font
+// her agirlik icin ayri dosya uretiyor ve hangisinin gerekli oldugunu
+// bilemedigi icin HICBIRINI preload etmiyor. Degisken (variable) fontta
+// subset basina tek dosya olusuyor ve preload kendiliginden ekleniyor —
+// 92px'lik hero basliginin Georgia'dan Cormorant'a zipladigi an ortadan kalkar.
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
   variable: "--font-cormorant",
   display: "swap",
 });
