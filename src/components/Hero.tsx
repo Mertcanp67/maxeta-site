@@ -3,11 +3,21 @@ import { WhatsAppIkon } from "@/components/ui/Icons";
 import { site } from "@/config/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
+/**
+ * Giris bolumu.
+ *
+ * Yukseklik `100svh`: mobil tarayicilarda adres cubugu acilip kapanirken
+ * `vh` degisip sayfayi ziplatiyordu; `svh` kucuk (small) viewport'u baz alir,
+ * boylece asagidaki "KEŞFEDİN" oku her zaman ekranin icinde kalir.
+ *
+ * Giris sirasi gecikmelerle kuruluyor (bkz. globals.css .hero-giris):
+ * etiket → baslik → altin cizgi → alinti → butonlar → kaydirma isareti.
+ */
 export function Hero() {
   return (
     <section
       id="ust"
-      className="relative overflow-x-clip bg-antrasit text-krem"
+      className="relative flex min-h-[100svh] flex-col overflow-x-clip bg-antrasit text-krem"
     >
       <div
         aria-hidden="true"
@@ -19,49 +29,82 @@ export function Hero() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-black/20"
       />
 
-      <div className="relative mx-auto max-w-6xl px-5 pt-32 pb-20 sm:px-8 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36">
-        <div className="max-w-3xl">
-          <p className="mb-5 text-xs font-medium tracking-[0.24em] text-altin-acik">
-            DUVAR KAĞIDI UYGULAMA
-          </p>
+      <div className="relative flex flex-1 items-center">
+        <div className="mx-auto w-full max-w-6xl px-5 pt-28 pb-16 sm:px-8 sm:pt-32 sm:pb-20">
+          <div className="max-w-3xl">
+            <p className="hero-giris mb-5 text-xs font-medium tracking-[0.24em] text-altin-acik">
+              DUVAR KAĞIDI UYGULAMA
+            </p>
 
-          <h1 className="font-serif text-[2.5rem] leading-[1.1] font-light text-krem sm:text-6xl lg:text-7xl">
-            Duvarlarınıza
-            <span className="block text-altin-acik italic">
-              50 Yıllık Ustalık
-            </span>
-          </h1>
+            <h1 className="hero-giris font-serif text-[2.5rem] leading-[1.1] font-light text-krem [animation-delay:150ms] sm:text-6xl lg:text-7xl">
+              Duvarlarınıza
+              <span className="block text-altin-acik italic">
+                50 Yıllık Ustalık
+              </span>
+            </h1>
 
-          <div aria-hidden="true" className="cizgi-ciz mt-8 h-px w-20 bg-altin-acik/70" />
+            <div
+              aria-hidden="true"
+              className="hero-cizgi mt-8 h-px w-20 bg-altin-acik/70 [animation-delay:350ms]"
+            />
 
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-krem/80 sm:text-lg">
-            Otel, konut ve ofis projelerinde tekstil, ipek, hasır, akustik ve
-            özel basım duvar kağıdı uygulamaları.
-          </p>
+            {/* Hero'nun ikinci odak noktasi: solunda ince dikey altin cizgiyle
+                alinti gibi duran, buyuk italik serif metin. */}
+            <p className="hero-giris mt-8 max-w-2xl border-l border-altin-acik/55 pl-5 font-serif text-[1.45rem] leading-[1.6] text-krem italic [animation-delay:450ms] sm:pl-6 sm:text-[2rem]">
+              <span className="block">
+                Duvar kağıdı bir dekor değil, mekânın{" "}
+                <span className="text-altin-acik">imzasıdır</span>.
+              </span>
+              <span className="block">
+                Biz o imzayı <span className="text-altin-acik">50 yıldır</span>{" "}
+                atıyoruz.
+              </span>
+            </p>
 
-          {/* Referans oteller yalnizca duz yazi — marka logosu kullanilmaz. */}
-          <p className="mt-5 text-[0.6875rem] font-medium tracking-[0.2em] text-altin-acik sm:text-xs">
-            HILTON · MARRIOTT · ELITE OTELLER
-          </p>
-
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <Button
-              href={whatsappUrl(
-                `Merhaba, ${site.name} ile duvar kağıdı uygulaması hakkında görüşmek istiyorum.`,
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              varyant="dolu"
-            >
-              <WhatsAppIkon className="h-5 w-5" />
-              WhatsApp&apos;tan Ulaşın
-            </Button>
-            <Button href="#iletisim" varyant="cerceveAcik">
-              Ücretsiz Keşif İsteyin
-            </Button>
+            <div className="hero-giris mt-10 flex flex-col gap-3 [animation-delay:650ms] sm:flex-row sm:gap-4">
+              <Button
+                href={whatsappUrl(
+                  `Merhaba, ${site.name} ile duvar kağıdı uygulaması hakkında görüşmek istiyorum.`,
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                varyant="dolu"
+              >
+                <WhatsAppIkon className="h-5 w-5" />
+                WhatsApp&apos;tan Ulaşın
+              </Button>
+              <Button href="#iletisim" varyant="cerceveAcik">
+                Ücretsiz Keşif İsteyin
+              </Button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Asagi kaydir isareti — bir sonraki bolume (rakam kartlari) goturur.
+          pb-28: lg altinda ekranin dibinde sabit MobileBar (~69px) var,
+          ok onun altinda kalmasin diye fazladan bosluk birakiliyor. */}
+      <a
+        href="#rakamlar"
+        className="hero-giris relative mx-auto flex flex-col items-center gap-2 pb-28 text-altin-acik transition-opacity duration-200 [animation-delay:850ms] hover:opacity-75 lg:pb-10"
+      >
+        <span className="text-[0.65rem] font-medium tracking-[0.22em]">
+          KEŞFEDİN
+        </span>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="ok-zipla h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 5v14M6 13l6 6 6-6" />
+        </svg>
+        <span className="sr-only">Sonraki bölüme geç</span>
+      </a>
     </section>
   );
 }

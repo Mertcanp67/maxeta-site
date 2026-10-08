@@ -216,3 +216,69 @@ body {
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------
+   Hero giris dizisi.
+   Hero ilk ekranda oldugu icin IntersectionObserver'a bagli degil;
+   sayfa acilir acilmaz gecikmelerle sirayla beliriyor. Hero'daki altin
+   cizgi bu yuzden `.cizgi-ciz` KULLANMAZ — iki sistem ayni ogede
+   cakismasin diye kendi animasyonu var.
+--------------------------------------------------------------- */
+@keyframes heroBelir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroCizgiCiz {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* `both`: gecikme boyunca baslangic durumunda bekler, sonunda sabit kalir */
+.hero-giris {
+  animation: heroBelir 0.8s ease-out both;
+}
+
+.hero-cizgi {
+  transform-origin: left center;
+  animation: heroCizgiCiz 0.8s ease-out both;
+}
+
+/* Asagi kaydir okunun yavas inip cikmasi */
+@keyframes okIndir {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.ok-zipla {
+  animation: okIndir 2.2s ease-in-out infinite;
+}
+
+/* Hareket azaltma: hero animasyonlari tamamen kapali, icerik dogrudan yerinde.
+   (Ustteki genel kural sureyi sifirliyor ama gecikmeyi birakiyor; burada
+   animasyonu komple kaldirip bekleme ihtimalini de ortadan kaldiriyoruz.) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-giris,
+  .hero-cizgi,
+  .ok-zipla {
+    animation: none;
+  }
+  .hero-cizgi {
+    transform: none;
+  }
+}

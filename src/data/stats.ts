@@ -12,6 +12,6 @@ export type Rakam = {
  */
 export const rakamlar: Rakam[] = [
   { deger: "50+", aciklama: "yıllık aile mesleği", boyut: "buyuk" },
-  { deger: "Otelden Eve", aciklama: "her ölçekte proje", boyut: "buyuk" },
+  { deger: "Usta İşi", aciklama: "her detayda el işçiliği", boyut: "buyuk" },
   { deger: "Ücretsiz", aciklama: "yerinde keşif", boyut: "buyuk" },
 ];

@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 
 export function Stats() {
   return (
-    <Section zemin="krem" desen="elmas">
+    <Section id="rakamlar" zemin="krem" desen="elmas">
       <h2 className="sr-only">Rakamlarla Maxeta Decor</h2>
 
       <div className="grid gap-px overflow-hidden rounded-lg border border-altin/25 bg-altin/25 sm:grid-cols-3">
