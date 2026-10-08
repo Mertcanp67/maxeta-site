@@ -1,10 +1,10 @@
-# Max Wall Decor – Kurumsal Web Sitesi
+# Maxeta Decor – Kurumsal Web Sitesi
 
 Bu dosya projenin ana brifidir. Kod yazmadan önce tamamını oku ve buradaki kurallara uy.
 
 ## Proje özeti
 
-Max Wall Decor, 50 yılı aşkın aile mesleği olan bir **duvar kağıdı uygulama** firması. Ankara merkezli çalışıyor; Hilton ve Marriott gibi otellerde büyük ölçekli projeler yapmış. Site **tanıtım amaçlı**, e-ticaret yok.
+Maxeta Decor, 50 yılı aşkın aile mesleği olan bir **duvar kağıdı uygulama** firması. Ankara merkezli çalışıyor; Hilton ve Marriott gibi otellerde büyük ölçekli projeler yapmış. Site **tanıtım amaçlı**, e-ticaret yok.
 
 - **Hedef kitle:** Oteller, müteahhitler, toplu konut firmaları ve üst segment konut sahipleri
 - **Sitenin amacı:** Güven vermek ve ziyaretçiyi WhatsApp ya da telefonla iletişime geçirmek
@@ -22,10 +22,10 @@ Max Wall Decor, 50 yılı aşkın aile mesleği olan bir **duvar kağıdı uygul
 
 ### SEO
 
-- `title`: "Max Wall Decor | Duvar Kağıdı Uygulama – Ankara"
+- `title`: "Maxeta Decor | Duvar Kağıdı Uygulama – Ankara"
 - `meta description`: "50 yılı aşkın aile mesleğiyle otel, konut ve ofis projelerinde profesyonel duvar kağıdı uygulaması. Tekstil, ipek, hasır, akustik ve özel basım duvar kağıtları. Ücretsiz keşif."
-- Open Graph etiketleri (`og:image` için `public/logo/maxwall-logo-dark.png` kullan)
-- `sitemap.xml` ve `robots.txt` (alan adı: `https://maxwalldecor.com`)
+- Open Graph etiketleri (`og:image` için `public/logo/maxeta-logo-dark.png` kullan)
+- `sitemap.xml` ve `robots.txt` (alan adı: `https://maxetadecor.com`)
 - `lang="tr"`
 - Favicon: `public/logo/favicon.svg` ve `public/logo/favicon.png`
 
@@ -35,8 +35,8 @@ Bütün iletişim bilgilerini **tek bir dosyada** tut (örneğin `src/config/sit
 
 ```ts
 export const site = {
-  name: "Max Wall Decor",
-  domain: "https://maxwalldecor.com",
+  name: "Maxeta Decor",
+  domain: "https://maxetadecor.com",
   phoneDisplay: "0 5XX XXX XX XX",   // YER TUTUCU
   phoneLink: "+905XXXXXXXXX",        // YER TUTUCU
   whatsapp: "905XXXXXXXXX",          // YER TUTUCU, wa.me formatında (başında + yok)
@@ -59,11 +59,11 @@ export const site = {
 
 | Dosya | Kullanım |
 |---|---|
-| `maxwall-logo-dark.svg` / `.png` | Açık zemin üzerinde (antrasit yazı, altın "DECOR") |
-| `maxwall-logo-light.svg` / `.png` | Koyu zemin üzerinde (krem yazı, altın "DECOR") |
+| `maxeta-logo-dark.svg` / `.png` | Açık zemin üzerinde (antrasit yazı, altın "DECOR") |
+| `maxeta-logo-light.svg` / `.png` | Koyu zemin üzerinde (krem yazı, altın "DECOR") |
 | `favicon.svg` / `.png` | Favicon ve uygulama ikonu (antrasit kare, altın "M") |
 
-Logo amblemsizdir: büyük harflerle "MAX WALL", altında ince çizgiler arasında "DECOR". Header'da SVG'yi `<img>` ile kullan. Her ekranda net okunacak boyutta olsun (mobilde yaklaşık 140–160px, masaüstünde 200–240px genişlik).
+Logo amblemsizdir: büyük harflerle "MAXETA", altında ince çizgiler arasında "DECOR". Header'da SVG'yi `<img>` ile kullan. Her ekranda net okunacak boyutta olsun (mobilde yaklaşık 140–160px, masaüstünde 200–240px genişlik).
 
 ### Renkler
 
@@ -101,11 +101,13 @@ Aşağıdaki metinler taslaktır. Anlamı koruyarak akıcılaştırabilirsin, am
 
 ### 2. Hero (koyu zemin)
 
-- Logo değil, başlık: **"Duvarlarınıza 50 Yıllık Ustalık"** (`h1`)
+- Logo değil, başlık: **"Duvarlarınıza 50 Yıllık Ustalık"** (`h1`). Tek satıra sığmazsa "Duvarlarınıza" ve "50 Yıllık Ustalık" iki satır olsun; ikinci satır altın renkte ve italik.
+- Başlığın altında ince altın çizgi.
 - Alt metin: "Otel, konut ve ofis projelerinde tekstil, ipek, hasır, akustik ve özel basım duvar kağıdı uygulamaları."
+- Alt metnin altında küçük, geniş harf aralıklı, altın renkte referans satırı: "HILTON · MARRIOTT · ELITE OTELLER" (yalnızca düz yazı, logo yok — bkz. Kesin kurallar #2)
 - Butonlar: **"WhatsApp'tan Ulaşın"** (wa.me linki) ve **"Ücretsiz Keşif İsteyin"** (iletişim bölümüne kaydırır)
 
-### 3. Rakamlarla Max Wall Decor
+### 3. Rakamlarla Maxeta Decor
 
 Üç büyük rakam kartı:
 - **50+** yıllık aile mesleği
@@ -114,7 +116,7 @@ Aşağıdaki metinler taslaktır. Anlamı koruyarak akıcılaştırabilirsin, am
 
 ### 4. Hakkımızda
 
-> Max Wall Decor, 50 yılı aşkın bir aile mesleğinin bugünkü temsilcisidir. Duvar kağıdını yalnızca uygulamakla kalmıyor, her kağıdın yapısını, karakterini ve hangi mekâna yakışacağını çok iyi tanıyoruz. Türkiye'nin ve yurt dışının önde gelen otellerinde yüz binlerce metrekarelik uygulamayı başarıyla tamamladık.
+> Maxeta Decor, 50 yılı aşkın bir aile mesleğinin bugünkü temsilcisidir. Duvar kağıdını yalnızca uygulamakla kalmıyor, her kağıdın yapısını, karakterini ve hangi mekâna yakışacağını çok iyi tanıyoruz. Türkiye'nin ve yurt dışının önde gelen otellerinde yüz binlerce metrekarelik uygulamayı başarıyla tamamladık.
 >
 > Bizim için her proje uzun soluklu bir müşteri ilişkisinin başlangıcıdır. Keşiften teslime kadar her aşamada yanınızdayız ve keşif hizmetimiz ücretsizdir.
 
@@ -148,7 +150,7 @@ Başlık: "Tamamladığımız Projelerden Bazıları". Fotoğrafsız, şık kart
 - Kartların altına küçük yazı: "ve daha birçok proje…"
 - Not: "Elite Oteller" yazımı müşteriyle teyit edilecek, şimdilik böyle kalsın.
 
-### 7. Neden Max Wall Decor?
+### 7. Neden Maxeta Decor?
 
 Dört madde, ikonlu (ikonlar sade, çizgi tarzında, inline SVG):
 - **İşini bilen ekip:** 50 yılı aşkın aile tecrübesi
@@ -167,7 +169,7 @@ Dört madde, ikonlu (ikonlar sade, çizgi tarzında, inline SVG):
 
 - Açık renkli logo, kısa bir cümle, telefon, WhatsApp, (varsa) e-posta
 - Menü linkleri
-- "© 2026 Max Wall Decor. Tüm hakları saklıdır."
+- "© 2026 Maxeta Decor. Tüm hakları saklıdır."
 
 ### 10. Sabit WhatsApp butonu
 

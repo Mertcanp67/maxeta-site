@@ -1,4 +1,4 @@
-# Max Wall Decor – web sitesi
+# Maxeta Decor – web sitesi
 
 Tek sayfalık tanıtım sitesi. Next.js (App Router) + TypeScript + Tailwind CSS,
 statik export ile Cloudflare Pages'e yüklenir. Sunucu tarafı kod yoktur.
@@ -64,7 +64,7 @@ etiketleri bu değerden üretilir.
 ## GitHub Pages (taslak yayını)
 
 Taslak, `main` branch'e her push'ta `.github/workflows/deploy.yml` ile
-otomatik derlenip `https://<kullanıcı>.github.io/maxwall-site/` adresinde
+otomatik derlenip `https://<kullanıcı>.github.io/maxeta-site/` adresinde
 yayınlanır. Repo ayarlarında **Settings → Pages → Source = GitHub Actions**
 seçili olmalıdır.
 
@@ -72,7 +72,7 @@ Site alt klasörde durduğu için derlemeye iki ortam değişkeni geçilir:
 
 | Değişken | Örnek | Ne işe yarar |
 |---|---|---|
-| `NEXT_PUBLIC_BASE_PATH` | `/maxwall-site` | `basePath` + `assetPrefix`; logo, favicon ve `_next` yolları bununla üretilir |
+| `NEXT_PUBLIC_BASE_PATH` | `/maxeta-site` | `basePath` + `assetPrefix`; logo, favicon ve `_next` yolları bununla üretilir |
 | `NEXT_PUBLIC_SITE_ORIGIN` | `https://kullanici.github.io` | `sitemap.xml`, canonical ve Open Graph adresleri |
 
 İkisi de **yalnızca** workflow içinde tanımlıdır. Cloudflare derlemesi ve

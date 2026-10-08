@@ -8,7 +8,7 @@ export function WhyUs() {
       <SectionBaslik
         ortala
         etiket="NEDEN BİZ?"
-        baslik="Neden Max Wall Decor?"
+        baslik="Neden Maxeta Decor?"
       />
 
       <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">

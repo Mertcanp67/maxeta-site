@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 /**
- * GitHub Pages alt klasorde (ornek: /maxwall-site) yayinlanirken
+ * GitHub Pages alt klasorde (ornek: /maxeta-site) yayinlanirken
  * NEXT_PUBLIC_BASE_PATH tanimlanir ve basePath/assetPrefix devreye girer.
  * Degisken bos oldugunda (yerel gelistirme ve Cloudflare Pages derlemesi)
  * site eskisi gibi kok dizinde calisir.

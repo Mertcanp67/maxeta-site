@@ -1,7 +1,7 @@
 # Siteyi derleyip GitHub Pages'e yukler.
 # main branch'e her push'ta ve elle (workflow_dispatch) calisir.
 #
-# Not: Site alt klasorde yayinlandigi icin (…github.io/maxwall-site) derlemeye
+# Not: Site alt klasorde yayinlandigi icin (…github.io/maxeta-site) derlemeye
 # NEXT_PUBLIC_BASE_PATH veriliyor. Repo adini degistirirseniz asagidaki
 # BASE_PATH degerini de guncelleyin. Cloudflare derlemesi bu degiskeni
 # almadigi icin orada site kok dizinde calismaya devam eder.
@@ -25,7 +25,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BASE_PATH: /maxwall-site
+  BASE_PATH: /maxeta-site
 
 jobs:
   build:

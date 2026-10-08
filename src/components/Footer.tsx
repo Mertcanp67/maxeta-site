@@ -17,8 +17,8 @@ export function Footer() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={asset("/logo/maxwall-logo-light.svg")}
-              alt="Max Wall Decor"
+              src={asset("/logo/maxeta-logo-light.svg")}
+              alt="Maxeta Decor"
               width={900}
               height={230}
               className="h-12 w-auto"
@@ -97,7 +97,7 @@ export function Footer() {
         />
 
         <p className="mt-6 text-sm text-krem/55">
-          © 2026 Max Wall Decor. Tüm hakları saklıdır.
+          © 2026 Maxeta Decor. Tüm hakları saklıdır.
         </p>
       </div>
     </footer>

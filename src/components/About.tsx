@@ -11,7 +11,7 @@ export function About() {
 
         <div className="space-y-6 text-base leading-[1.85] text-gri sm:text-[1.05rem]">
           <p>
-            Max Wall Decor, 50 yılı aşkın bir aile mesleğinin bugünkü
+            Maxeta Decor, 50 yılı aşkın bir aile mesleğinin bugünkü
             temsilcisidir. Duvar kağıdını yalnızca uygulamakla kalmıyor, her
             kağıdın yapısını, karakterini ve hangi mekâna yakışacağını çok iyi
             tanıyoruz. Türkiye&apos;nin ve yurt dışının önde gelen otellerinde

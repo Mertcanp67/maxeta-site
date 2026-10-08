@@ -26,17 +26,22 @@ export function Hero() {
           </p>
 
           <h1 className="font-serif text-[2.5rem] leading-[1.1] font-light text-krem sm:text-6xl lg:text-7xl">
-            Otellerin Güvendiği Ustalık,
-            <span className="block text-altin-acik">Şimdi Evinizde</span>
+            Duvarlarınıza
+            <span className="block text-altin-acik italic">
+              50 Yıllık Ustalık
+            </span>
           </h1>
 
           <div aria-hidden="true" className="mt-8 h-px w-20 bg-altin-acik/70" />
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-krem/80 sm:text-lg">
-            Hilton ve Marriott otellerinde yüz binlerce metrekareyi kusursuz
-            teslim eden 50 yıllık aile tecrübesi. Salonunuzdan yatak odanıza,
-            tek bir dekoratif duvardan tüm evinize kadar her işi aynı titizlikle
-            yapıyoruz.
+            Otel, konut ve ofis projelerinde tekstil, ipek, hasır, akustik ve
+            özel basım duvar kağıdı uygulamaları.
+          </p>
+
+          {/* Referans oteller yalnizca duz yazi — marka logosu kullanilmaz. */}
+          <p className="mt-5 text-[0.6875rem] font-medium tracking-[0.2em] text-altin-acik sm:text-xs">
+            HILTON · MARRIOTT · ELITE OTELLER
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">

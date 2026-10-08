@@ -19,8 +19,8 @@ type SiteConfig = {
 };
 
 export const site: SiteConfig = {
-  name: "Max Wall Decor",
-  domain: "https://maxwalldecor.com",
+  name: "Maxeta Decor",
+  domain: "https://maxetadecor.com",
 
   phoneDisplay: "0 5XX XXX XX XX", // YER TUTUCU
   phoneLink: "+905XXXXXXXXX", // YER TUTUCU

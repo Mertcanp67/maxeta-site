@@ -4,14 +4,14 @@ import { site } from "@/config/site";
  * Sitenin yayina alindigi yer iki farkli olabilir:
  *
  *   1. Cloudflare Pages (asil yayin) — kok dizin, basePath yok.
- *   2. GitHub Pages (taslak/onizleme) — <kullanici>.github.io/maxwall-site
+ *   2. GitHub Pages (taslak/onizleme) — <kullanici>.github.io/maxeta-site
  *      alt klasoru, yani basePath var.
  *
  * Fark yalnizca iki ortam degiskeniyle kuruluyor; kod tek kalsin diye
  * butun yollar bu dosyadan gecer. Degiskenler bos oldugunda (yerel gelistirme
  * ve Cloudflare derlemesi) her sey eskisi gibi kok dizinde calisir.
  *
- *   NEXT_PUBLIC_BASE_PATH    ornek: /maxwall-site
+ *   NEXT_PUBLIC_BASE_PATH    ornek: /maxeta-site
  *   NEXT_PUBLIC_SITE_ORIGIN  ornek: https://kullanici.github.io
  */
 

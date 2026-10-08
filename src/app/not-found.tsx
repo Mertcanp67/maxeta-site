@@ -6,7 +6,7 @@ import { asset } from "@/lib/paths";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Sayfa bulunamadı | Max Wall Decor",
+  title: "Sayfa bulunamadı | Maxeta Decor",
   robots: { index: false, follow: true },
 };
 
@@ -22,12 +22,12 @@ export default function NotFound() {
         <a
           href={asset("/")}
           className="inline-flex"
-          aria-label="Max Wall Decor ana sayfa"
+          aria-label="Maxeta Decor ana sayfa"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={asset("/logo/maxwall-logo-light.svg")}
-            alt="Max Wall Decor"
+            src={asset("/logo/maxeta-logo-light.svg")}
+            alt="Maxeta Decor"
             width={900}
             height={230}
             className="h-12 w-auto lg:h-14"

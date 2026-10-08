@@ -36,12 +36,12 @@ export function Header() {
         <a
           href="#ust"
           className="inline-flex min-h-11 shrink-0 items-center"
-          aria-label="Max Wall Decor – sayfanın başına dön"
+          aria-label="Maxeta Decor – sayfanın başına dön"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={asset("/logo/maxwall-logo-dark.svg")}
-            alt="Max Wall Decor"
+            src={asset("/logo/maxeta-logo-dark.svg")}
+            alt="Maxeta Decor"
             width={900}
             height={230}
             className="h-10 w-auto lg:h-14"

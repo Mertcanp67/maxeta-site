@@ -22,7 +22,7 @@ const aciklama =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Max Wall Decor | Duvar Kağıdı Uygulama – Ankara",
+  title: "Maxeta Decor | Duvar Kağıdı Uygulama – Ankara",
   description: aciklama,
   applicationName: site.name,
   // Not: metadataBase zaten basePath'i tasidigi icin asagidaki canonical ve
@@ -45,22 +45,22 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: siteUrl,
     siteName: site.name,
-    title: "Max Wall Decor | Duvar Kağıdı Uygulama – Ankara",
+    title: "Maxeta Decor | Duvar Kağıdı Uygulama – Ankara",
     description: aciklama,
     images: [
       {
-        url: "/logo/maxwall-logo-dark.png",
-        width: 1800,
-        height: 460,
-        alt: "Max Wall Decor",
+        url: "/logo/maxeta-logo-dark.png",
+        width: 2220,
+        height: 690,
+        alt: "Maxeta Decor",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Max Wall Decor | Duvar Kağıdı Uygulama – Ankara",
+    title: "Maxeta Decor | Duvar Kağıdı Uygulama – Ankara",
     description: aciklama,
-    images: ["/logo/maxwall-logo-dark.png"],
+    images: ["/logo/maxeta-logo-dark.png"],
   },
   icons: {
     icon: [
@@ -96,7 +96,7 @@ const kurumsalVeri = {
   "@type": "Organization",
   name: site.name,
   url: siteUrl,
-  logo: `${siteUrl}/logo/maxwall-logo-dark.png`,
+  logo: `${siteUrl}/logo/maxeta-logo-dark.png`,
   description: aciklama,
   telephone: site.phoneLink,
   contactPoint: [
