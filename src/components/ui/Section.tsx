@@ -53,6 +53,14 @@ export function Section({
           className={`pointer-events-none absolute inset-0 ${desenSinifi}`}
         />
       )}
+      {/* Kagit dokusu yalnizca koyu zeminlerde: overlay karisimi acik
+          zeminde yuzeyi kirli gosteriyor. */}
+      {koyuMu && (
+        <div
+          aria-hidden="true"
+          className="doku-kagit pointer-events-none absolute inset-0"
+        />
+      )}
       <div
         className={`belir relative mx-auto px-5 py-20 sm:px-8 sm:py-24 lg:py-28 ${
           genis ? "max-w-7xl" : "max-w-6xl"

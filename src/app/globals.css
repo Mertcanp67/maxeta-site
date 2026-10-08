@@ -354,4 +354,8 @@ body {
 .doku-kagit {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");
   background-size: 140px 140px;
+  /* Siddet BURADA ayarlanir — hero, koyu bolumler ve footer ayni degeri
+     kullanir, tek noktadan degistirilir. */
+  opacity: 0.09;
+  mix-blend-mode: overlay;
 }

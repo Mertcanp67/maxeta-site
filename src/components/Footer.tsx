@@ -10,6 +10,10 @@ export function Footer() {
         aria-hidden="true"
         className="desen-damask-koyu pointer-events-none absolute inset-0"
       />
+      <div
+        aria-hidden="true"
+        className="doku-kagit pointer-events-none absolute inset-0"
+      />
 
       <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-[calc(7rem+env(safe-area-inset-bottom))] sm:px-8 sm:pt-20 sm:pb-[calc(6.5rem+env(safe-area-inset-bottom))] lg:pb-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)]">

@@ -37,7 +37,7 @@ export function Hero() {
       {/* Kagit dokusu: en ustteki arka plan katmani, icerigin altinda kalir */}
       <div
         aria-hidden="true"
-        className="doku-kagit pointer-events-none absolute inset-0 opacity-[0.09] mix-blend-overlay"
+        className="doku-kagit pointer-events-none absolute inset-0"
       />
       {/* Alt kenarda yumusak koyulasma, bolum gecisini yumusatir */}
       <div
