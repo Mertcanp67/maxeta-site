@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="ust"
-      className="relative overflow-hidden bg-antrasit text-krem"
+      className="relative overflow-x-clip bg-antrasit text-krem"
     >
       <div
         aria-hidden="true"
@@ -32,7 +32,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <div aria-hidden="true" className="mt-8 h-px w-20 bg-altin-acik/70" />
+          <div aria-hidden="true" className="cizgi-ciz mt-8 h-px w-20 bg-altin-acik/70" />
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-krem/80 sm:text-lg">
             Otel, konut ve ofis projelerinde tekstil, ipek, hasır, akustik ve

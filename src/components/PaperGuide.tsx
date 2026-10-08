@@ -12,7 +12,7 @@ export function PaperGuide() {
       <h3 className="font-serif text-2xl leading-snug text-antrasit sm:text-[1.75rem]">
         Hangi kağıt nereye uygun?
       </h3>
-      <div aria-hidden="true" className="mt-5 h-px w-16 bg-altin" />
+      <div aria-hidden="true" className="cizgi-ciz mt-5 h-px w-16 bg-altin" />
 
       <table className="mt-8 w-full border-collapse text-left">
         <caption className="sr-only">

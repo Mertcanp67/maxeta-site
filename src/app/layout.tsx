@@ -49,10 +49,12 @@ export const metadata: Metadata = {
     description: aciklama,
     images: [
       {
-        url: "/logo/maxeta-logo-dark.png",
-        width: 2220,
-        height: 690,
-        alt: "Maxeta Decor",
+        // Paylasim karti: scripts/og-kart.mjs uretir (npm run og).
+        // Logo dosyasi genis bir serit oldugu icin onizlemede kirpiliyordu.
+        url: "/og/og-kart.png",
+        width: 1200,
+        height: 630,
+        alt: "Maxeta Decor — Duvarlarınıza 50 Yıllık Ustalık",
       },
     ],
   },
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maxeta Decor | Duvar Kağıdı Uygulama – Ankara",
     description: aciklama,
-    images: ["/logo/maxeta-logo-dark.png"],
+    images: ["/og/og-kart.png"],
   },
   icons: {
     icon: [
@@ -115,6 +117,32 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${cormorant.variable} ${inter.variable}`}>
       <body>
+        {/*
+          Belirme animasyonunu baslatan kucuk script. Kutuphane yok.
+          Icerigi gizleyen CSS yalnizca `.belirme-acik` sinifi varken devreye
+          girdigi icin; script calismazsa, IntersectionObserver yoksa ya da
+          kullanici hareket azaltma istiyorsa her sey oldugu gibi gorunur.
+          <body>'nin basinda duruyor ki sinif icerik boyanmadan once eklensin.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{
+if(!('IntersectionObserver' in window))return;
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var d=document.documentElement;d.classList.add('belirme-acik');
+var g=new IntersectionObserver(function(ler){for(var i=0;i<ler.length;i++){if(ler[i].isIntersecting){ler[i].target.classList.add('gorundu');g.unobserve(ler[i].target);}}},{rootMargin:'0px 0px -5% 0px',threshold:0.01});
+function kur(){var e=document.querySelectorAll('.belir, .belir-kademeli > *, .cizgi-ciz');for(var i=0;i<e.length;i++)g.observe(e[i]);}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',kur);}else{kur();}
+/* Emniyet agi: sayfa gorunur hale geldikten 1.5sn sonra HICBIR oge
+   isaretlenmediyse gozlemci calismiyor demektir -> gizlemeyi tamamen kaldir.
+   Boylece en kotu ihtimalde animasyon olmaz, icerik asla gizli kalmaz. */
+function emniyet(){if(document.hidden){document.addEventListener('visibilitychange',function h(){if(!document.hidden){document.removeEventListener('visibilitychange',h);setTimeout(emniyet,1500);}});return;}
+if(!document.querySelector('.gorundu'))d.classList.remove('belirme-acik');}
+if(document.readyState==='complete'){setTimeout(emniyet,1500);}else{window.addEventListener('load',function(){setTimeout(emniyet,1500);});}
+}catch(_){document.documentElement.classList.remove('belirme-acik');}})();`,
+          }}
+        />
+
         {/* Klavyeyle gezinenler icin: Tab'a basinca ilk cikan baglanti */}
         <a
           href="#icerik"

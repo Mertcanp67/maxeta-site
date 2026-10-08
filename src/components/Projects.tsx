@@ -19,11 +19,11 @@ export function Projects() {
         }
       />
 
-      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="belir-kademeli grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projeler.map((proje, i) => (
           <li
             key={`${proje.ad}-${proje.konum}-${i}`}
-            className="flex h-full flex-col rounded-lg border border-altin-acik/25 bg-white/[0.04] p-7 transition-[border-color,background-color] duration-300 hover:border-altin-acik/60 hover:bg-white/[0.07]"
+            className="flex h-full flex-col rounded-lg border border-altin-acik/25 bg-white/[0.04] p-7 transition-[border-color,background-color,box-shadow,translate] duration-300 hover:-translate-y-0.5 hover:border-altin-acik/60 hover:bg-white/[0.07] hover:shadow-[0_10px_30px_rgba(0,0,0,0.28)]"
           >
             <h3 className="font-serif text-2xl leading-snug text-krem">
               {proje.ad}
@@ -56,7 +56,7 @@ export function Projects() {
         <h3 className="font-serif text-2xl leading-snug text-krem sm:text-[1.75rem]">
           Otel ve Müteahhitler İçin
         </h3>
-        <div aria-hidden="true" className="mt-5 h-px w-16 bg-altin-acik/70" />
+        <div aria-hidden="true" className="cizgi-ciz mt-5 h-px w-16 bg-altin-acik/70" />
         <p className="mt-6 max-w-3xl text-[0.95rem] leading-relaxed text-krem/80 sm:text-base">
           Büyük projelerde metraj üzerinden yazılı teklif veriyor, şantiye
           takvimine uyumlu çalışıyoruz. İşi bölüm bölüm planlayabilir, otel

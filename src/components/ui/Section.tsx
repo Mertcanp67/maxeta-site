@@ -45,7 +45,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative overflow-hidden ${zeminler[zemin]} ${className}`.trim()}
+      className={`relative overflow-x-clip ${zeminler[zemin]} ${className}`.trim()}
     >
       {desenSinifi && (
         <div
@@ -105,9 +105,9 @@ export function SectionBaslik({
       </Baslik>
       <div
         aria-hidden="true"
-        className={`mt-6 h-px w-16 ${ortala ? "mx-auto" : ""} ${
-          koyu ? "bg-altin-acik/70" : "bg-altin"
-        }`}
+        className={`cizgi-ciz mt-6 h-px w-16 ${
+          ortala ? "cizgi-ciz-orta mx-auto" : ""
+        } ${koyu ? "bg-altin-acik/70" : "bg-altin"}`}
       />
       {aciklama && (
         <p

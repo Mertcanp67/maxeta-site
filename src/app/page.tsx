@@ -6,6 +6,7 @@ import { Craftsmanship } from "@/components/Craftsmanship";
 import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { Projects } from "@/components/Projects";
+import { Faq } from "@/components/Faq";
 import { WhyUs } from "@/components/WhyUs";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -24,6 +25,7 @@ export default function Home() {
         <Services />
         <Process />
         <Projects />
+        <Faq />
         <WhyUs />
         <Contact />
       </main>

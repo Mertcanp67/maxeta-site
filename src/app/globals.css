@@ -58,7 +58,9 @@ body {
   -webkit-font-smoothing: antialiased;
   /* Not: body uzerinde overflow-x:hidden KULLANMA. body'yi kaydirma kabi
      yapip #bolum capa linklerinin kaydirmasini bozuyor. Yatay tasmayi
-     her bolum kendi overflow-hidden'i ile engelliyor. */
+     her bolum kendi overflow-x-clip'i ile engelliyor. Bilerek `clip`:
+     `hidden` kaydirma kabi olusturur ve asagidaki view() animasyonlarinin
+     viewport yerine bolumu olcmesine yol acar. */
 }
 
 ::selection {
@@ -102,27 +104,115 @@ body {
 }
 
 /* ---------------------------------------------------------------
-   Bolumlerin cok hafif belirmesi. Tamamen CSS; JS yok.
-   @supports disinda ya da reduced-motion'da hicbir sey olmaz,
-   icerik dogrudan gorunur kalir.
+   Gorunur alana girince belirme (bolumler, kartlar, altin cizgiler)
+
+   NEDEN `animation-timeline: view()` DEGIL:
+   Scroll tabanli animasyon, ogenin araligini tamamlamasi icin geriye yeterli
+   kaydirma mesafesi olmasini gerektirir. Sayfanin SONUNA yakin bolumlerde
+   (Neden Biz, Iletisim) bu mesafe kalmadigi icin animasyon hicbir zaman
+   tamamlanmiyor ve icerik ekranda opacity:0 olarak asili kaliyordu. Ayrica
+   view() yalnizca Chromium'da calisiyor.
+
+   Bunun yerine kucuk bir IntersectionObserver bir kere `.gorundu` sinifini
+   ekliyor, gerisini CSS gecisi yapiyor. Boylece:
+     - icerik ASLA gizli kalamaz (gozlemci gorunur olan her ogede tetiklenir),
+     - JS yoksa/eski tarayicida `.belirme-acik` hic eklenmez, her sey gorunur,
+     - Safari ve Firefox'ta da calisir.
+   Hareket yine tamamen CSS; JS sadece sinif ekliyor.
 --------------------------------------------------------------- */
-@keyframes belirme {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+
+/* Gizleme YALNIZCA script calistiginda devreye girer. */
+.belirme-acik .belir,
+.belirme-acik .belir-kademeli > * {
+  opacity: 0;
+  /* Bilerek `transform`: Tailwind v4'un translate yardimcilari `translate`
+     ozelligini kullaniyor, boylece kart hover'daki kalkma ile cakismiyor. */
+  transform: translateY(12px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .belir {
-      animation: belirme linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 45%;
-    }
+.belirme-acik .belir.gorundu,
+.belirme-acik .belir-kademeli > .gorundu {
+  opacity: 1;
+  transform: none;
+}
+
+/* Kademe: zaman tabanli gecis oldugu icin artik duz transition-delay yetiyor */
+.belirme-acik .belir-kademeli > :nth-child(2) {
+  transition-delay: 0.08s;
+}
+.belirme-acik .belir-kademeli > :nth-child(3) {
+  transition-delay: 0.16s;
+}
+.belirme-acik .belir-kademeli > :nth-child(4) {
+  transition-delay: 0.24s;
+}
+.belirme-acik .belir-kademeli > :nth-child(5) {
+  transition-delay: 0.32s;
+}
+/* 6 ve sonrasi ayni kademede kalir; daha fazlasi bekleme hissi veriyor */
+.belirme-acik .belir-kademeli > :nth-child(n + 6) {
+  transition-delay: 0.4s;
+}
+
+/* Izgarasi kademeli belirenlerde bolumun tamamini ayrica soldurmuyoruz;
+   iki animasyon ust uste binince hareket bulaniklasiyor. Bolum basligi
+   sabit kalir, altin cizgi cizilir, kartlar sirayla gelir. */
+.belirme-acik .belir:has(.belir-kademeli) {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Ince altin cizgilerin soldan cizilmesi.
+   Genislik yerine scaleX: Tailwind'in w-16/w-20 degerine dokunmadan calisir
+   ve layout'u hic kaydirmaz (sadece compositor isi). */
+.belirme-acik .cizgi-ciz {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s ease-out;
+}
+
+.belirme-acik .cizgi-ciz-orta {
+  transform-origin: center;
+}
+
+.belirme-acik .cizgi-ciz.gorundu {
+  transform: scaleX(1);
+}
+
+/* ---------------------------------------------------------------
+   Dolu butonda hover'da gecen altin parilti.
+--------------------------------------------------------------- */
+.btn-parla {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-parla::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease-out;
+}
+
+.btn-parla:hover::after,
+.btn-parla:focus-visible::after {
+  transform: translateX(120%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-parla::after {
+    display: none;
   }
 }

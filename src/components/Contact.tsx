@@ -48,7 +48,7 @@ export function Contact() {
         {/* Doğrudan iletişim */}
         <div>
           <h3 className="font-serif text-2xl text-antrasit">Doğrudan ulaşın</h3>
-          <div aria-hidden="true" className="mt-4 h-px w-12 bg-altin" />
+          <div aria-hidden="true" className="cizgi-ciz mt-4 h-px w-12 bg-altin" />
 
           <ul className="mt-7 space-y-4">
             <li>

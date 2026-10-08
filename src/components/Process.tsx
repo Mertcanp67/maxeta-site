@@ -11,7 +11,7 @@ export function Process() {
       />
 
       {/* Mobilde alt alta, masaustunde bes adim yan yana. */}
-      <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+      <ol className="belir-kademeli grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
         {surecAdimlari.map((adim, i) => (
           <li key={adim.baslik} className="relative flex gap-5 lg:block">
             <div className="flex shrink-0 flex-col items-center lg:block">

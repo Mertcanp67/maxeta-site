@@ -7,7 +7,7 @@ const temel =
 
 const varyantlar: Record<Varyant, string> = {
   // Altin zemin, antrasit yazi
-  dolu: "bg-altin-dolu text-antrasit hover:bg-altin-acik",
+  dolu: "btn-parla bg-altin-dolu text-antrasit hover:bg-altin-acik",
   // Acik zeminde altin cerceve
   cerceve: "border border-altin text-antrasit hover:bg-altin/10",
   // Koyu zeminde altin cerceve
