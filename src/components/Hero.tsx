@@ -21,7 +21,18 @@ export function Hero() {
     >
       <div
         aria-hidden="true"
-        className="desen-damask-koyu pointer-events-none absolute inset-0"
+        className="desen-damask-koyu desen-suzul pointer-events-none absolute inset-0"
+      />
+      {/* Basligin arkasindan gelen yumusak altin isik — derinlik veriyor.
+          Opaklik bilerek dusuk: metin kontrasti bozulmamali. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_55%_at_22%_38%,rgba(201,169,110,0.17),transparent_68%)]"
+      />
+      {/* Kenarlari karartan vinyet: goz merkeze, basliga odaklaniyor */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(125%_85%_at_50%_45%,transparent_38%,rgba(0,0,0,0.5))]"
       />
       {/* Alt kenarda yumusak koyulasma, bolum gecisini yumusatir */}
       <div
@@ -31,15 +42,21 @@ export function Hero() {
 
       <div className="relative flex flex-1 items-center">
         <div className="mx-auto w-full max-w-6xl px-5 pt-28 pb-16 sm:px-8 sm:pt-32 sm:pb-20">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <p className="hero-giris mb-5 text-xs font-medium tracking-[0.24em] text-altin-acik">
               DUVAR KAĞIDI UYGULAMA
             </p>
 
-            <h1 className="hero-giris font-serif text-[2.5rem] leading-[1.1] font-light text-krem [animation-delay:150ms] sm:text-6xl lg:text-7xl">
-              Duvarlarınıza
-              <span className="block text-altin-acik italic">
-                50 Yıllık Ustalık
+            {/* Akiskan punto: 360px'te ~37px, genis ekranda 92px'e kadar
+                buyuyor. clamp sayesinde ara kirilimlarda da orantili. */}
+            <h1 className="font-serif text-[clamp(2.35rem,8.6vw,5.75rem)] leading-[1.06] font-light text-krem">
+              <span className="hero-giris block [animation-delay:150ms]">
+                Duvarlarınıza
+              </span>
+              <span className="hero-giris block [animation-delay:330ms]">
+                <span className="altin-parilti text-altin-acik italic">
+                  50 Yıllık Ustalık
+                </span>
               </span>
             </h1>
 

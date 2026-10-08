@@ -37,8 +37,8 @@ export function Craftsmanship() {
             sıkan bir duvar kalır.
           </p>
           <p className="font-serif text-xl leading-snug text-krem sm:text-2xl">
-            Pahalı kağıdı ucuz işçilik kurtarmaz. Biz işi bir kere ve doğru
-            yaparız.
+            Kağıt ne kadar iyi olursa olsun, sonucu belirleyen işçiliktir.
+            Biz işi bir kere ve doğru yaparız.
           </p>
         </div>
 

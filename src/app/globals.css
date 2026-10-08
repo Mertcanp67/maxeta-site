@@ -282,3 +282,65 @@ body {
     transform: none;
   }
 }
+
+/* ---------------------------------------------------------------
+   Hero: altin yazida yavas gecen parilti.
+
+   ⚠️ `color: transparent` + background-clip:text, desteklenmezse metni
+   GORUNMEZ birakir. Bu yuzden temel renk normal sekilde duruyor ve
+   seffaflik YALNIZCA @supports icinde devreye giriyor.
+--------------------------------------------------------------- */
+@keyframes altinKay {
+  0% {
+    background-position: 180% 0;
+  }
+  /* Sweep ilk %45'te biter, kalan sure bekleme: strobe gibi degil,
+     arada bir parlayan bir isik gibi okunuyor. */
+  45%,
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  @media (prefers-reduced-motion: no-preference) {
+    .altin-parilti {
+      /* Gradient iki ucta da ayni altinda bitiyor ve TEKRARLI birakiliyor:
+         boylece arka plan hangi konumda olursa olsun metin mutlaka boyanir.
+         no-repeat olsaydi sweep metnin disina ciktigi anda yazi gorunmez
+         kalirdi (color: transparent). */
+      background-image: linear-gradient(
+        100deg,
+        #c9a96e 0%,
+        #c9a96e 38%,
+        #f3e3c4 47%,
+        #fff8ea 50%,
+        #f3e3c4 53%,
+        #c9a96e 62%,
+        #c9a96e 100%
+      );
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: altinKay 9s ease-in-out 1.8s infinite;
+    }
+  }
+}
+
+/* Arka plan deseninin cok yavas kaymasi — hareketsiz bir fotograf yerine
+   mekana hafif bir canlilik veriyor. 90sn: fark edilir ama dikkat dagitmaz. */
+@keyframes desenSuzul {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 72px 72px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .desen-suzul {
+    animation: desenSuzul 90s linear infinite;
+  }
+}
