@@ -51,9 +51,9 @@ export function Hero() {
       />
 
       <div className="relative flex flex-1 items-center">
-        <div className="mx-auto w-full max-w-6xl px-5 pt-24 pb-10 sm:px-8 sm:pt-32 sm:pb-20">
+        <div className="mx-auto w-full max-w-6xl px-5 pt-20 pb-2 sm:px-8 sm:pt-24 sm:pb-12">
           <div className="max-w-4xl">
-            <p className="hero-giris mb-5 text-xs font-medium tracking-[0.24em] text-altin-acik">
+            <p className="hero-giris mb-4 text-xs font-medium tracking-[0.24em] text-altin-acik">
               DUVAR KAĞIDI UYGULAMA
             </p>
 
@@ -72,11 +72,11 @@ export function Hero() {
 
             <div
               aria-hidden="true"
-              className="hero-cizgi mt-8 h-px w-20 bg-altin-acik/70 [animation-delay:350ms]"
+              className="hero-cizgi mt-6 h-px w-20 bg-altin-acik/70 [animation-delay:350ms]"
             />
 
             {/* Alinti plaketi: hero'nun ikinci odak noktasi */}
-            <figure className="plaket-giris relative mt-8 max-w-2xl sm:mt-10 rounded-sm border border-[rgba(201,169,110,0.45)] bg-gradient-to-b from-[rgba(201,169,110,0.10)] to-[rgba(201,169,110,0.03)] px-[22px] pt-7 pb-6 shadow-[0_0_40px_rgba(201,169,110,0.12)] sm:px-9 sm:pt-9 sm:pb-8">
+            <figure className="plaket-giris relative mt-6 max-w-2xl sm:mt-8 rounded-sm border border-[rgba(201,169,110,0.45)] bg-gradient-to-b from-[rgba(201,169,110,0.10)] to-[rgba(201,169,110,0.03)] px-[22px] pt-6 pb-5 shadow-[0_0_40px_rgba(201,169,110,0.12)] sm:px-9 sm:pt-7 sm:pb-6">
               {/* Kosedeki kalin L cizgileri — cercevenin uzerine biner */}
               <span
                 aria-hidden="true"
@@ -94,13 +94,13 @@ export function Hero() {
                 &ldquo;
               </span>
 
-              <blockquote className="font-serif text-[27px] leading-[1.5] font-medium text-krem italic sm:text-[34px]">
+              <blockquote className="font-serif text-[23px] leading-[1.45] font-medium text-krem italic sm:text-[34px]">
                 <p>
                   Duvar kağıdı bir dekor değil, mekânın{" "}
                   <span className="altin-kelime">imzasıdır.</span>
                 </p>
                 {/* Iki cumle arasinda bos satir */}
-                <p className="mt-5">
+                <p className="mt-4">
                   Biz o imzayı{" "}
                   <span className="altin-kelime text-[1.25em]">50 yıldır</span>{" "}
                   atıyoruz.
@@ -109,7 +109,7 @@ export function Hero() {
 
             </figure>
 
-            <div className="hero-giris mt-8 flex flex-col gap-3 [animation-delay:650ms] sm:mt-10 sm:flex-row sm:gap-4">
+            <div className="hero-giris mt-6 flex flex-col gap-3 [animation-delay:650ms] sm:mt-8 sm:flex-row sm:gap-4">
               <Button
                 href={whatsappUrl(
                   `Merhaba, ${site.name} ile duvar kağıdı uygulaması hakkında görüşmek istiyorum.`,

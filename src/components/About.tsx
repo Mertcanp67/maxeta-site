@@ -22,11 +22,6 @@ export function About() {
       <div className="grid gap-12 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-16">
         <figure className="mx-auto w-full max-w-[320px] lg:mx-0 lg:max-w-none">
           <div className="relative">
-            {/* Arkada 12px kaymis ikinci cerceve — katmanli gorunum */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-3 translate-y-3 border border-altin"
-            />
             <img
               src={asset("/images/mehmet-ascibasi.jpg")}
               alt="Maxeta Decor yetkilisi Mehmet Aşçıbaşı"
