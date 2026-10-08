@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Great_Vibes, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { site } from "@/config/site";
 import { asset, basePath, siteUrl } from "@/lib/paths";
 import "./globals.css";
@@ -12,15 +12,6 @@ import "./globals.css";
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
   variable: "--font-cormorant",
-  display: "swap",
-});
-
-// Imza icin el yazisi. Great Vibes tek agirlikta (400) geliyor, degisken
-// surumu yok; latin-ext subset'i Turkce harfler (s, c, i) icin sart.
-const greatVibes = Great_Vibes({
-  subsets: ["latin", "latin-ext"],
-  weight: "400",
-  variable: "--font-great-vibes",
   display: "swap",
 });
 
@@ -128,7 +119,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={`${cormorant.variable} ${greatVibes.variable} ${inter.variable}`}>
+    <html lang="tr" className={`${cormorant.variable} ${inter.variable}`}>
       <body>
         {/*
           Belirme animasyonunu baslatan kucuk script. Kutuphane yok.

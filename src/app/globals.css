@@ -21,7 +21,6 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-imza: var(--font-great-vibes), "Great Vibes", cursive;
 }
 
 /* ---------------------------------------------------------------
@@ -431,45 +430,10 @@ body {
   }
 }
 
-/* Imzanin soldan saga yazilmasi */
-@keyframes imzaYazil {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-.imza-yaz {
-  animation: imzaYazil 1.3s ease-out 1600ms both;
-}
-
-/* Imza altindaki dalgali cizginin cizilmesi (pathLength=1 ile normalize) */
-@keyframes imzaCizgiCizil {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.imza-cizgi path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: imzaCizgiCizil 0.6s ease-out 2900ms both;
-}
-
 /* Hareket azaltma: hepsi kapali, her sey dogrudan gorunur */
 @media (prefers-reduced-motion: reduce) {
   .plaket-giris,
-  .imza-yaz,
   .altin-kelime {
     animation: none;
-  }
-  .imza-yaz {
-    clip-path: none;
-  }
-  .imza-cizgi path {
-    animation: none;
-    stroke-dashoffset: 0;
   }
 }

@@ -107,33 +107,6 @@ export function Hero() {
                 </p>
               </blockquote>
 
-              <figcaption className="mt-6 text-right sm:mt-7">
-                <span className="imza-yaz block font-imza text-[38px] leading-none text-[#e3c98f] [text-shadow:0_0_14px_rgba(227,201,143,0.4)]">
-                  Mustafa Aşçıbaşı
-                </span>
-
-                {/* Imza altindaki dalgali cizgi */}
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 180 14"
-                  width="180"
-                  height="14"
-                  fill="none"
-                  className="imza-cizgi mt-2 ml-auto block w-[180px] max-w-full"
-                >
-                  <path
-                    d="M2 9 C 28 2, 52 13, 78 6 S 132 1, 178 8"
-                    pathLength="1"
-                    stroke="#c9a96e"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-
-                <span className="mt-2.5 block text-[0.65rem] font-medium tracking-[0.2em] text-krem/50">
-                  MAXETA DECOR · YETKİLİ
-                </span>
-              </figcaption>
             </figure>
 
             <div className="hero-giris mt-8 flex flex-col gap-3 [animation-delay:650ms] sm:mt-10 sm:flex-row sm:gap-4">

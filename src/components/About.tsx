@@ -7,8 +7,9 @@ import { asset } from "@/lib/paths";
  * Fotograf `asset()` ile veriliyor: Next, <img src> icin basePath'i
  * kendiliginden eklemiyor, GitHub Pages taslaginda kirik kalirdi.
  *
- * Kaynak gorsel 533x803 (2:3). Cerceve 4:5 oldugu icin `object-cover`
- * ustten/alttan bir miktar kirpiyor — istenen davranis bu.
+ * Cerceve orani kaynak gorselin kendi orani (533x803) ile ayni tutuluyor,
+ * boylece fotograf cerceveye tam oturuyor ve hicbir yeri kirpilmiyor.
+ * Gorsel degisirse aspect-[533/803] ve width/height degerlerini de guncelle.
  */
 export function About() {
   return (
@@ -27,18 +28,18 @@ export function About() {
               className="absolute inset-0 translate-x-3 translate-y-3 border border-altin"
             />
             <img
-              src={asset("/images/mustafa-ascibasi.jpg")}
-              alt="Maxeta Decor yetkilisi Mustafa Aşçıbaşı"
+              src={asset("/images/mehmet-ascibasi.jpg")}
+              alt="Maxeta Decor yetkilisi Mehmet Aşçıbaşı"
               width={320}
-              height={400}
+              height={482}
               loading="lazy"
-              className="relative block aspect-[4/5] w-full border border-altin object-cover"
+              className="relative block aspect-[533/803] w-full border border-altin object-cover"
             />
           </div>
 
           <figcaption className="mt-6">
             <p className="font-serif text-2xl leading-snug text-antrasit sm:text-[1.75rem]">
-              Mustafa Aşçıbaşı
+              Mehmet Aşçıbaşı
             </p>
             <p className="mt-2 text-[0.7rem] font-medium tracking-[0.22em] text-altin-koyu">
               YETKİLİ
@@ -71,7 +72,7 @@ export function About() {
               koruyoruz.”
             </p>
             <footer className="mt-4 text-sm tracking-wide text-gri">
-              — Mustafa Aşçıbaşı
+              — Mehmet Aşçıbaşı
             </footer>
           </blockquote>
         </div>
