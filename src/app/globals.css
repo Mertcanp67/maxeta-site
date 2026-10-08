@@ -21,6 +21,7 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-imza: var(--font-great-vibes), "Great Vibes", cursive;
 }
 
 /* ---------------------------------------------------------------
@@ -244,14 +245,24 @@ body {
   }
 }
 
-/* `both`: gecikme boyunca baslangic durumunda bekler, sonunda sabit kalir */
+/* ⚠️ Bilerek UZUN yazim, `animation` kisayolu DEGIL.
+   Kisayol, yazilmayan alt ozellikleri sifirlar; bu siniflar Tailwind
+   utility'lerinden sonra geldigi icin `[animation-delay:150ms]` gibi
+   siniflari eziyor ve butun hero ayni anda beliriyordu.
+   `both`: gecikme boyunca baslangic durumunda bekler, sonunda sabit kalir. */
 .hero-giris {
-  animation: heroBelir 0.8s ease-out both;
+  animation-name: heroBelir;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
 }
 
 .hero-cizgi {
   transform-origin: left center;
-  animation: heroCizgiCiz 0.8s ease-out both;
+  animation-name: heroCizgiCiz;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
 }
 
 /* Asagi kaydir okunun yavas inip cikmasi */
@@ -358,4 +369,107 @@ body {
      kullanir, tek noktadan degistirilir. */
   opacity: 0.09;
   mix-blend-mode: overlay;
+}
+
+/* ---------------------------------------------------------------
+   Hero alinti plaketi.
+
+   Zamanlama (toplam 3.5sn):
+     0ms    etiket
+     150ms  baslik 1. satir
+     330ms  baslik 2. satir
+     350ms  altin cizgi
+     550ms  plaket belirir            (650ms) -> 1200
+     1200ms altin kelimelerde parilti (1400ms) -> 2600
+     1600ms imza yazilir              (1300ms) -> 2900
+     2900ms imza cizgisi cizilir      (600ms)  -> 3500
+   Parilti ve imza bilerek kismen ust uste biniyor; seri calistirilsaydi
+   toplam 4sn'i asacakti.
+--------------------------------------------------------------- */
+.plaket-giris {
+  animation: heroBelir 0.65s ease-out 550ms both;
+}
+
+/* Altin degrade kelimeler ("imzasıdır." / "50 yıldır").
+   ⚠️ color:transparent oldugu icin arka plan HER konumda boyanmali:
+   background-repeat varsayilan (repeat) birakiliyor. */
+@keyframes altinSweep {
+  from {
+    background-position: 190% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+.altin-kelime {
+  /* Fallback: @supports gecmezse duz altin kalir, yazi asla kaybolmaz */
+  color: var(--color-altin-acik);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .altin-kelime {
+    background-image: linear-gradient(
+      100deg,
+      #b08d57 0%,
+      #f1dcaa 50%,
+      #c9a96e 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 1px 6px rgba(201, 169, 110, 0.35));
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Bir kez soldan saga gecer, sonra sabit kalir (both) */
+    .altin-kelime {
+      animation: altinSweep 1.4s ease-out 1200ms both;
+    }
+  }
+}
+
+/* Imzanin soldan saga yazilmasi */
+@keyframes imzaYazil {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.imza-yaz {
+  animation: imzaYazil 1.3s ease-out 1600ms both;
+}
+
+/* Imza altindaki dalgali cizginin cizilmesi (pathLength=1 ile normalize) */
+@keyframes imzaCizgiCizil {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.imza-cizgi path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: imzaCizgiCizil 0.6s ease-out 2900ms both;
+}
+
+/* Hareket azaltma: hepsi kapali, her sey dogrudan gorunur */
+@media (prefers-reduced-motion: reduce) {
+  .plaket-giris,
+  .imza-yaz,
+  .altin-kelime {
+    animation: none;
+  }
+  .imza-yaz {
+    clip-path: none;
+  }
+  .imza-cizgi path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
 }
