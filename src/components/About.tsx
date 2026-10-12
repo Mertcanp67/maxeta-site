@@ -1,11 +1,7 @@
 import { Section, SectionBaslik } from "@/components/ui/Section";
-import { asset } from "@/lib/paths";
 
 /**
  * Hakkimizda.
- *
- * Fotograf `asset()` ile veriliyor: Next, <img src> icin basePath'i
- * kendiliginden eklemiyor, GitHub Pages taslaginda kirik kalirdi.
  *
  * Cerceve orani kaynak gorselin kendi orani (533x803) ile ayni tutuluyor,
  * boylece fotograf cerceveye tam oturuyor ve hicbir yeri kirpilmiyor.
@@ -23,7 +19,7 @@ export function About() {
         <figure className="mx-auto w-full max-w-[320px] lg:mx-0 lg:max-w-none">
           <div className="relative">
             <img
-              src={asset("/images/mehmet-ascibasi.jpg")}
+              src="/images/mehmet-ascibasi.jpg"
               alt="Maxeta Decor yetkilisi Mehmet Aşçıbaşı"
               width={320}
               height={482}

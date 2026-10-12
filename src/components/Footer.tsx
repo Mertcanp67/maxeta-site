@@ -1,6 +1,5 @@
 import { nav, site } from "@/config/site";
 import { PostaIkon, TelefonIkon, WhatsAppIkon } from "@/components/ui/Icons";
-import { asset } from "@/lib/paths";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 export function Footer() {
@@ -21,7 +20,7 @@ export function Footer() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={asset("/logo/maxeta-logo-light.svg")}
+              src="/logo/maxeta-logo-light.svg"
               alt="Maxeta Decor"
               width={900}
               height={230}

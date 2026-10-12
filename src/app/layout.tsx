@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { site } from "@/config/site";
-import { asset, basePath, siteUrl } from "@/lib/paths";
+import { siteUrl } from "@/lib/paths";
 import "./globals.css";
 
 // `weight` BILEREK verilmiyor: sabit agirlik listesi verildiginde next/font
@@ -29,9 +29,8 @@ export const metadata: Metadata = {
   title: "Maxeta Decor | Duvar Kağıdı Uygulama – Ankara",
   description: aciklama,
   applicationName: site.name,
-  // Not: metadataBase zaten basePath'i tasidigi icin asagidaki canonical ve
-  // og/twitter gorsel yollari basePath'SIZ verilir; Next ikisini birlestirir.
-  // Buna karsin icons alanina basePath'i elle eklemek gerekiyor (asset()).
+  // Kok yollar metadataBase ile birlestirilir; canonical ve og/twitter
+  // gorselleri bu yuzden tam adres olarak uretilir.
   alternates: { canonical: "/" },
   keywords: [
     "duvar kağıdı uygulama",
@@ -70,20 +69,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: asset("/logo/favicon.svg"), type: "image/svg+xml" },
-      {
-        url: asset("/logo/favicon.png"),
-        type: "image/png",
-        sizes: "512x512",
-      },
+      { url: "/logo/favicon.svg", type: "image/svg+xml" },
+      { url: "/logo/favicon.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: asset("/logo/favicon.png"), sizes: "512x512" }],
+    apple: [{ url: "/logo/favicon.png", sizes: "512x512" }],
   },
-  // GitHub Pages taslagi (basePath dolu) arama motorlarina kapali kalir;
-  // ayni icerik asil alan adiyla birlikte iki yerde indekslenmesin.
-  robots: basePath
-    ? { index: false, follow: false }
-    : { index: true, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {

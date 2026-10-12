@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { WhatsAppIkon } from "@/components/ui/Icons";
 import { site } from "@/config/site";
-import { asset } from "@/lib/paths";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -20,13 +19,13 @@ export default function NotFound() {
 
       <div className="relative mx-auto w-full max-w-2xl px-5 py-20 text-center sm:px-8">
         <a
-          href={asset("/")}
+          href="/"
           className="inline-flex"
           aria-label="Maxeta Decor ana sayfa"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={asset("/logo/maxeta-logo-light.svg")}
+            src="/logo/maxeta-logo-light.svg"
             alt="Maxeta Decor"
             width={900}
             height={230}
@@ -53,7 +52,7 @@ export default function NotFound() {
         </p>
 
         <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-          <Button href={asset("/")} varyant="dolu">
+          <Button href="/" varyant="dolu">
             Ana sayfaya dön
           </Button>
           <Button

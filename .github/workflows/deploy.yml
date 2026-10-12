@@ -1,10 +1,9 @@
 # Siteyi derleyip GitHub Pages'e yukler.
 # main branch'e her push'ta ve elle (workflow_dispatch) calisir.
 #
-# Not: Site alt klasorde yayinlandigi icin (…github.io/maxeta-site) derlemeye
-# NEXT_PUBLIC_BASE_PATH veriliyor. Repo adini degistirirseniz asagidaki
-# BASE_PATH degerini de guncelleyin. Cloudflare derlemesi bu degiskeni
-# almadigi icin orada site kok dizinde calismaya devam eder.
+# Site kendi alan adinda (https://maxetadecor.com) kok dizinden yayinlanir:
+# basePath yoktur, derlemeye fazladan ortam degiskeni verilmez. Alan adi
+# public/CNAME dosyasindan ve deponun Pages ayarindan gelir.
 
 name: GitHub Pages'e yukle
 
@@ -24,9 +23,6 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  BASE_PATH: /maxeta-site
-
 jobs:
   build:
     name: Derle
@@ -44,14 +40,7 @@ jobs:
       - name: Bagimliliklari kur
         run: npm ci
 
-      - name: Pages ayarlarini al
-        id: pages
-        uses: actions/configure-pages@v5
-
       - name: Statik siteyi derle
-        env:
-          NEXT_PUBLIC_BASE_PATH: ${{ env.BASE_PATH }}
-          NEXT_PUBLIC_SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
         run: npm run build
 
       - name: .nojekyll ekle

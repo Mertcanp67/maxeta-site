@@ -61,39 +61,32 @@ Alan adı bağlandıktan sonra `src/config/site.ts` içindeki `domain` değerini
 doğru olduğundan emin olun — `sitemap.xml`, `robots.txt` ve Open Graph
 etiketleri bu değerden üretilir.
 
-## GitHub Pages (taslak yayını)
+## GitHub Pages (kendi alan adıyla)
 
-Taslak, `main` branch'e her push'ta `.github/workflows/deploy.yml` ile
-otomatik derlenip `https://<kullanıcı>.github.io/maxeta-site/` adresinde
-yayınlanır. Repo ayarlarında **Settings → Pages → Source = GitHub Actions**
-seçili olmalıdır.
+`main` branch'e her push'ta `.github/workflows/deploy.yml` ile otomatik
+derlenip `https://maxetadecor.com` adresinde yayınlanır. Repo ayarlarında
+**Settings → Pages → Source = GitHub Actions** seçili olmalı ve **Custom
+domain** alanına `maxetadecor.com` yazılmalıdır.
 
-Site alt klasörde durduğu için derlemeye iki ortam değişkeni geçilir:
+Alan adı iki yerden gelir:
 
-| Değişken | Örnek | Ne işe yarar |
-|---|---|---|
-| `NEXT_PUBLIC_BASE_PATH` | `/maxeta-site` | `basePath` + `assetPrefix`; logo, favicon ve `_next` yolları bununla üretilir |
-| `NEXT_PUBLIC_SITE_ORIGIN` | `https://kullanici.github.io` | `sitemap.xml`, canonical ve Open Graph adresleri |
+- `public/CNAME` — tek satır, `maxetadecor.com`. Derlemede `out/CNAME` olarak
+  kopyalanır; Pages özel alan adını buradan okur.
+- `src/config/site.ts` içindeki `domain` — `sitemap.xml`, `robots.txt`,
+  canonical, Open Graph ve JSON-LD adresleri bu değerden üretilir. Alan adı
+  değişirse **yalnızca** bu iki dosyayı güncellemek yeterlidir.
 
-İkisi de **yalnızca** workflow içinde tanımlıdır. Cloudflare derlemesi ve
-yerel `npm run dev` bu değişkenleri almadığı için site orada kök dizinde
-çalışmaya devam eder — iki ortam için tek kod.
+Site kök dizinde (`/`) çalışır: `basePath` ve `assetPrefix` yoktur, derlemeye
+alan adıyla ilgili ortam değişkeni geçilmez. Bu yüzden logo, favicon ve
+`_next` yolları doğrudan kök yollardır (`/logo/favicon.svg` gibi) ve yerel
+`npm run dev` ile yayındaki davranış birebir aynıdır.
 
-Repo adını değiştirirseniz `deploy.yml` içindeki `BASE_PATH` değerini de
-güncelleyin, yoksa stil ve görseller 404 verir.
+`siteUrl` (`src/lib/paths.ts`) `sitemap.xml`, `robots.txt`, canonical ve
+JSON-LD için tam adresi verir. Open Graph görselleri ve canonical kök yol
+olarak yazılır; Next bunları `metadataBase` ile birleştirir.
 
-Yolların tamamı `src/lib/paths.ts` üzerinden geçer:
-
-- `asset("/logo/...")` — `<img src>`, favicon ve kök linkleri için (Next bu
-  alanlara basePath'i kendiliğinden eklemez).
-- `siteUrl` — `sitemap.xml`, `robots.txt`, canonical ve JSON-LD için.
-- Open Graph görselleri ve canonical'a basePath **elle eklenmez**; Next
-  bunları `metadataBase` ile birleştirir, iki kez eklenirse yol bozulur.
-
-`basePath` dolu olduğunda (yani yalnızca GitHub Pages taslağında) sayfa
-`noindex, nofollow` ile işaretlenir ve `robots.txt` taramayı kapatır — aynı
-içerik asıl alan adıyla birlikte iki yerde indekslenmesin diye. Asıl yayında
-bu otomatik olarak devre dışı kalır.
+DNS tarafında `maxetadecor.com` için GitHub'ın apex IP'leri (`185.199.108.153`
+ve devamı) ya da `www` için `<kullanıcı>.github.io` CNAME kaydı gerekir.
 
 ## Altın tonları — hangisi nerede?
 

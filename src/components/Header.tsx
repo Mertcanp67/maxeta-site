@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { nav, site } from "@/config/site";
-import { asset } from "@/lib/paths";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { KapatIkon, MenuIkon, WhatsAppIkon } from "@/components/ui/Icons";
 
@@ -40,7 +39,7 @@ export function Header() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={asset("/logo/maxeta-logo-dark.svg")}
+            src="/logo/maxeta-logo-dark.svg"
             alt="Maxeta Decor"
             width={900}
             height={230}
